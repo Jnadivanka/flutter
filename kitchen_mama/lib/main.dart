@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kitchen_mama/model/foodAPI.dart';
+import 'package:kitchen_mama/foodAPI.dart';
 
 void main() {
   runApp(MyApp());
