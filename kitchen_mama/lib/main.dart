@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Your Meals',
       theme: ThemeData(
         primaryColor: Colors.cyanAccent,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -29,11 +29,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Future<FoodList> foodlist;
-
-  @override
-  int randoM() {
-    return random.nextInt(13) + 1;
-  }
 
   @override
   void initState() {
@@ -73,10 +68,10 @@ class _MyHomePageState extends State<MyHomePage> {
                               height: 120,
                               margin: EdgeInsets.all(14.0),
                               child: Image.network(
-                                  '${snapshot.data.categories[randoM()].strCategoryThumb}'),
+                                  '${snapshot.data.categories[index].strCategoryThumb}'),
                             ),
                             Text(
-                                '${snapshot.data.categories[randoM()].strCategory}')
+                                '${snapshot.data.categories[index].strCategory}')
                           ],
                           // subtitle: Text(
                           //     '${snapshot.data.categories[index].strCategoryDescription}'),

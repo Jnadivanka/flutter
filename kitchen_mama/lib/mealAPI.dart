@@ -11,7 +11,7 @@ class MealList {
   final List<Meal> meals;
   factory MealList.fromJson(Map<String, dynamic> json) =>
       _$MealListFromJson(json);
-  Map<String, dynamic> toJson() => _MealListToJson(this);
+  Map<String, dynamic> toJson() => _$MealListToJson(this);
 }
 
 @JsonSerializable()
@@ -24,5 +24,14 @@ class Meal {
 }
 
 Future<MealList> getMealList() async {
-  const url = '';
+  for (int i = 1; i <= 10; i += 1) {
+    var url = 'https://www.themealdb.com/api/json/v1/1/random.php';
+    final response = await http.get(url);
+    if (response.statusCode == 200) {
+      return MealList.fromJson(json.decode(response.body));
+    } else {
+      throw HttpException('Error ${response.reasonPhrase}',
+          uri: Uri.parse(url));
+    }
+  }
 }
