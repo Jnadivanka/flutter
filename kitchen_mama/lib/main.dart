@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kitchen_mama/foodAPI.dart';
+import 'dart:math';
 
+Random random = new Random();
 void main() {
   runApp(MyApp());
 }
@@ -27,6 +29,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Future<FoodList> foodlist;
+
+  @override
+  int randoM() {
+    return random.nextInt(13) + 1;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -65,10 +73,10 @@ class _MyHomePageState extends State<MyHomePage> {
                               height: 120,
                               margin: EdgeInsets.all(14.0),
                               child: Image.network(
-                                  '${snapshot.data.categories[index].strCategoryThumb}'),
+                                  '${snapshot.data.categories[randoM()].strCategoryThumb}'),
                             ),
                             Text(
-                                '${snapshot.data.categories[index].strCategory}')
+                                '${snapshot.data.categories[randoM()].strCategory}')
                           ],
                           // subtitle: Text(
                           //     '${snapshot.data.categories[index].strCategoryDescription}'),
