@@ -27,7 +27,7 @@ Future<FoodList> getFoodList() async {
   const apiURL = "https://www.themealdb.com/api/json/v1/1/categories.php";
   final response = await http.get(apiURL);
   if (response.statusCode == 200) {
-    return FoodList.fromJson(json.decode(respose.body));
+    return FoodList.fromJson(json.decode(response.body));
   } else {
     throw HttpException('Error ${response.reasonPhrase}',
         uri: Uri.parse(apiURL));
