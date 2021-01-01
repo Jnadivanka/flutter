@@ -9,8 +9,7 @@ part of 'foodAPI.dart';
 FoodList _$FoodListFromJson(Map<String, dynamic> json) {
   return FoodList(
     categories: (json['categories'] as List)
-        ?.map(
-            (e) => e == null ? null : Food.fromJson(e as Map<String, dynamic>))
+        ?.map((e) => e == null ? null : Food.fromJson(e as Map<String, dynamic>))
         ?.toList(),
   );
 }
