@@ -1,4 +1,4 @@
-name: run
+name: random
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -23,9 +23,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  http: ^0.12.2
-  json_serializable: ^3.5.1
-  build_runnner: ^1.10.11
 
 
   # The following adds the Cupertino Icons font to your application.
