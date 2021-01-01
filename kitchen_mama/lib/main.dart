@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:kitchen_mama/foodAPI.dart';
 import 'dart:math';
 
-Random random = new Random();
+import 'package:flutter/material.dart';
+import 'package:kitchen_mama/foodAPI.dart';
+
+Random random = Random();
 void main() {
   runApp(MyApp());
 }
@@ -36,37 +37,39 @@ class _MyHomePageState extends State<MyHomePage> {
     foodlist = getFoodList();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Kitchen Mama'),
+        title: const Text('Kitchen Mama'),
       ),
       body: FutureBuilder<FoodList>(
           future: foodlist,
-          builder: (context, snapshot) {
+          builder: (BuildContext context, AsyncSnapshot<FoodList> snapshot) {
             switch (snapshot.connectionState) {
               case ConnectionState.none:
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               case ConnectionState.active:
               case ConnectionState.waiting:
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               case ConnectionState.done:
                 if (snapshot.hasError) return Text('Error: ${snapshot.error}');
                 return GridView.builder(
                     itemCount: snapshot.data.categories.length,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 10,
                     ),
-                    itemBuilder: (context, index) {
+                    itemBuilder: (BuildContext context, int index) {
                       return Card(
                         child: Column(
+                          // ignore: always_specify_types
                           children: [
                             Container(
                               width: 120,
                               height: 120,
-                              margin: EdgeInsets.all(14.0),
+                              margin: const EdgeInsets.all(14.0),
                               child: Image.network(
                                   '${snapshot.data.categories[index].strCategoryThumb}'),
                             ),

@@ -1,7 +1,8 @@
-import 'package:json_annotation/json_annotation.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:io';
+
+import 'package:http/http.dart' as http;
+import 'package:json_annotation/json_annotation.dart';
 
 part 'mealAPI.g.dart';
 
@@ -25,8 +26,8 @@ class Meal {
 
 Future<MealList> getMealList() async {
   for (int i = 1; i <= 10; i += 1) {
-    var url = 'https://www.themealdb.com/api/json/v1/1/random.php';
-    final response = await http.get(url);
+    const String url = 'https://www.themealdb.com/api/json/v1/1/random.php';
+    final http.Response response = await http.get(url);
     if (response.statusCode == 200) {
       return MealList.fromJson(json.decode(response.body));
     } else {

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'statistik.dart';
-import 'profile.dart';
 
 class Tabungan extends StatefulWidget {
-  Tabungan({Key key}) : super(key: key);
+  const Tabungan({Key key}) : super(key: key);
 
   @override
   _TabunganState createState() => _TabunganState();
@@ -12,7 +10,7 @@ class Tabungan extends StatefulWidget {
 class _TabunganState extends State<Tabungan> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
      
       body: Text('Ini Tabungan'),
     );

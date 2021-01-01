@@ -11,26 +11,27 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Kitchen Mama'),
+        title: const Text('Kitchen Mama'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            TextField(
+            const TextField(
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(12.0),
                 border: OutlineInputBorder(),
-                labelText: "Masak Apa hari ini?",
+                labelText: 'Masak Apa hari ini?',
               ),
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                // ignore: always_specify_types
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
                   return MyHomePage();
                 }));
               },
-              child: Text("Cari"),
+              child: const Text('Cari'),
             ),
           ],
         ),

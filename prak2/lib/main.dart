@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'pages/home.dart';
+import 'pages/profile.dart';
 import 'pages/statistik.dart';
 import 'pages/tabungan.dart';
-import 'pages/profile.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Prak-2',
       debugShowCheckedModeBanner: false,
       home: Main(),
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
 }
 
 class Main extends StatefulWidget {
-  Main({Key key}) : super(key: key);
+  const Main({Key key}) : super(key: key);
 
   @override
   _MainState createState() => _MainState();
@@ -43,8 +44,8 @@ class _MainState extends State<Main> {
     });
   }
 
-  final warnaIcons = Color.fromRGBO(34, 48, 92, 100);
-  final backgroundColor = Colors.pink[100];
+  final Color warnaIcons = const Color.fromRGBO(34, 48, 92, 100);
+  final Color backgroundColor = Colors.pink[100];
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +60,7 @@ class _MainState extends State<Main> {
         backgroundColor: backgroundColor,
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: 20.0),
+            padding: const EdgeInsets.only(right: 20.0),
             child: GestureDetector(
               onTap: () {},
               child: Icon(
@@ -76,7 +77,7 @@ class _MainState extends State<Main> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: "Home",
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.timeline),

@@ -1,4 +1,5 @@
 import 'package:e_sinau/home.dart';
+import 'package:e_sinau/profile.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -63,9 +64,8 @@ class _LoginPageState extends State<LoginPage> {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) {
-                  return HomePage();
+                var pushReplacement = Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+                  return ProfilePage();
                 }));
               },
               child: Text("Login"),

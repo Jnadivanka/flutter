@@ -3,7 +3,7 @@ import 'statistik.dart';
 import 'tabungan.dart';
 
 class Profile extends StatefulWidget {
-  Profile({Key key}) : super(key: key);
+  const Profile({Key key}) : super(key: key);
 
   @override
   _ProfileState createState() => _ProfileState();
@@ -12,7 +12,7 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
  
       body: Text('ini Page Profile'),
     );
