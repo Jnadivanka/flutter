@@ -7,6 +7,7 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+  TextEditingController cari1 = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +18,8 @@ class _SearchPageState extends State<SearchPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            const TextField(
+            TextField(
+              controller: cari1,
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(12.0),
                 border: OutlineInputBorder(),
@@ -27,7 +29,7 @@ class _SearchPageState extends State<SearchPage> {
             ElevatedButton(
               onPressed: () {
                 // ignore: always_specify_types
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+               final Future push = Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
                   return MyHomePage();
                 }));
               },

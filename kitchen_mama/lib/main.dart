@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:kitchen_mama/foodAPI.dart';
+import 'package:kitchen_mama/search.dart';
 
 Random random = Random();
 void main() {
@@ -40,8 +41,31 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Kitchen Mama'),
+     appBar: AppBar(
+        leading: Icon(
+          Icons.menu,
+          color: Colors.white,
+        ),
+        title: Text('Meal'),
+        elevation: 0,
+        backgroundColor: Colors.deepOrange,
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 20.0),
+            child: GestureDetector(
+              onTap: () {
+                final Future push = Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+                  return SearchPage();
+                }));
+              },
+              child: Icon(
+                Icons.search_outlined,
+                size: 26.0,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ],
       ),
       body: FutureBuilder<FoodList>(
           future: foodlist,
