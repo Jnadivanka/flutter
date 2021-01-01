@@ -1,5 +1,4 @@
 import 'package:e_sinau/home.dart';
-import 'package:e_sinau/profile.dart';
 import 'package:flutter/material.dart';
 
 void main() {
